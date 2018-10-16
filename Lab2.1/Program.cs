@@ -14,6 +14,7 @@ namespace Lab2._1
             try
             {
                 int n = int.Parse(Console.ReadLine());
+                if (n<=0) return;
                 double currentMin = 1.7e+308;
                 double currentMax = 5e-324;
 
