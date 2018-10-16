@@ -11,24 +11,31 @@ namespace Lab2._1
         static void Main(string[] args)
         {
             Console.WriteLine("Введите количество элементов в последовательности:");
-            int n = int.Parse(Console.ReadLine());
-            double currentMin = 1.7e+308;
-            double currentMax = 5e-324;
-
-            for (int i = 0; i < n; i++)
+            try
             {
-                Console.WriteLine("Введите число");
-                double currentNumber = double.Parse(Console.ReadLine());
-                if (currentNumber < currentMin)
+                int n = int.Parse(Console.ReadLine());
+                double currentMin = 1.7e+308;
+                double currentMax = 5e-324;
+
+                for (int i = 0; i < n; i++)
                 {
-                    currentMin = currentNumber;
+                    Console.WriteLine("Введите число");
+                    double currentNumber = double.Parse(Console.ReadLine());
+                    if (currentNumber < currentMin)
+                    {
+                        currentMin = currentNumber;
+                    }
+                    if (currentNumber > currentMax)
+                    {
+                        currentMax = currentNumber;
+                    }
                 }
-                if (currentNumber > currentMax)
-                {
-                    currentMax = currentNumber;
-                }
+                Console.WriteLine($"Разность максимального и минимального элементов в последовательности: {currentMax - currentMin} ");
             }
-            Console.WriteLine($"Разность максимального и минимального элементов в последовательности: {currentMax - currentMin} ");
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
     }
