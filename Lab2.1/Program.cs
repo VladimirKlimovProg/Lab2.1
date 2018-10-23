@@ -14,13 +14,14 @@ namespace Lab2._1
             try
             {
                 int n = int.Parse(Console.ReadLine());
+
                 if (n <= 0)
                 {
-                    Console.WriteLine("Количестов элементов в последовательности должно быть больше 0");
-                    return;
-                } 
+                    throw new Exception();
+                }
+
                 double currentMin = 1.7e+308;
-                double currentMax = 5e-324;
+                double currentMax = -1.7e+308;
 
                 for (int i = 0; i < n; i++)
                 {
@@ -37,9 +38,9 @@ namespace Lab2._1
                 }
                 Console.WriteLine($"Разность максимального и минимального элементов в последовательности: {currentMax - currentMin}");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Некорректный ввод");
             }
         }
     }
